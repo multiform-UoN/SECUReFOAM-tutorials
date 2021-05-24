@@ -1,0 +1,98 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 8-1c9b5879390b
+Exec   : setRandomField
+Date   : May 21 2021
+Time   : 16:10:41
+Host   : "ord2249"
+PID    : 184337
+I/O    : uncollated
+Case   : /home/juan/testrhoDarcyFoam/HenryHet2D/steadystate
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Seed is : 1646035404
+
+Creating a logNormal random field 
+  with gaussian correlation for field K
+Lcorr (0.2 10 0.1)
+corrTol 1e-08
+nu 1
+mu -20.7
+sigma 1.4142
+nfreq 20 20 20
+reset 1
+additive 0
+setFinalStats 0
+periodic 0
+facePeriodicity 0
+maxLength (2 40 1)
+disableY 1
+disableZ 0
+Number of dimensions: 2
+  WARNING: Not enough frequencies in x 
+       Changed to 40
+  WARNING: Not enough frequencies in z 
+       Changed to 40
+
+Generating and storing random numbers
+
+Reading field K
+--> FOAM Warning : 
+    From function bool Foam::IOobject::typeHeaderOk(bool) [with Type = Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>]
+    in file /opt/openfoam8/src/OpenFOAM/lnInclude/IOobjectTemplates.C at line 57
+    unexpected class name volSymmTensorField expected volScalarField when reading "/home/juan/testrhoDarcyFoam/HenryHet2D/steadystate/0/K"
+--> FOAM Warning : 
+    From function bool Foam::IOobject::typeHeaderOk(bool) [with Type = Foam::GeometricField<Foam::Vector<double>, Foam::fvPatchField, Foam::volMesh>]
+    in file /opt/openfoam8/src/OpenFOAM/lnInclude/IOobjectTemplates.C at line 57
+    unexpected class name volSymmTensorField expected volVectorField when reading "/home/juan/testrhoDarcyFoam/HenryHet2D/steadystate/0/K"
+--> FOAM Warning : 
+    From function bool Foam::IOobject::typeHeaderOk(bool) [with Type = Foam::GeometricField<Foam::Tensor<double>, Foam::fvPatchField, Foam::volMesh>]
+    in file /opt/openfoam8/src/OpenFOAM/lnInclude/IOobjectTemplates.C at line 57
+    unexpected class name volSymmTensorField expected volTensorField when reading "/home/juan/testrhoDarcyFoam/HenryHet2D/steadystate/0/K"
+  Field is a symmetric tensor
+
+Start computing Random Field
+
+Gaussian Random Field generated
+
+---- Statistics random field ---
+CorrLengths: (0.2 10 0.1)
+Mean: -20.7
+Var: 1.99996
+--------------------------------
+
+
+Cannot print logStats as the field takes non-positive values
+
+Postprocessing
+
+Writing the Random Field
+
+---- Statistics random field ---
+CorrLengths: (0.2 10 0.1)
+Mean: 2.77256e-09
+Var: 4.39159e-17
+--------------------------------
+
+
+---- Statistics log of random field ---
+CorrLengths: (0.2 10 0.1)
+Mean: -20.7
+Var: 1.99996
+------------------------------------
+
+End
+
