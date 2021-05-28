@@ -17,6 +17,8 @@ FoamFile
 
 dimensions      [1 -3 0 0 0 0 0];
 
+c0 0.0357;
+
 internalField   uniform 0;
 
 boundaryField
@@ -28,8 +30,16 @@ boundaryField
     }
     right
     {
-        type            fixedValue;
-        value           uniform 0.0;
+        type            fixedTransportFlux;
+        advectiveValue  uniform $c0;
+        D               uniform 6.6e-6;
+        diffusiveValue  uniform $c0;
+        diffusiveFactor uniform 1;
+        inletDiffusion  false;
+        //type          fixedValue;
+        //type          inletOutlet;
+        inletValue      uniform $c0;
+        value           uniform $c0;
     }
     top
     {

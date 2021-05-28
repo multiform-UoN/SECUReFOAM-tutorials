@@ -34,11 +34,11 @@ deltaT          1.;
 
 writeControl    adjustableRunTime;
 
-writeInterval   100e0;
+writeInterval   10e0;
 
 purgeWrite      0;
 
-writeFormat     ascii;
+writeFormat     binary;
 
 writePrecision  6;
 
@@ -53,7 +53,7 @@ adjustTimeStep  yes;
 runTimeModifiable yes;
 
 maxDeltaT	100e0;
-maxCo           2.;
+maxCo           .1;
 
 
 // ************************************************************************* //

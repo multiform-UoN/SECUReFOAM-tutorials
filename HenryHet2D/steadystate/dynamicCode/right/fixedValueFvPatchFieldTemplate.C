@@ -29,7 +29,7 @@ License
 #include "surfaceFields.H"
 #include "unitConversion.H"
 //{{{ begin codeInclude
-#line 57 "/home/juan/testrhoDarcyFoam/HenryHet2D/steadystate/0/p/boundaryField/right"
+#line 57 "/Users/pmzmi1/OpenFOAM/SECUReFOAM-tutorials/HenryHet2D/steadystate/0/p/boundaryField/right"
 #include "uniformDimensionedFields.H"
 //}}} end codeInclude
 
@@ -197,7 +197,7 @@ void rightFixedValueFvPatchScalarField::updateCoeffs()
     }
 
 //{{{ begin code
-    #line 41 "/home/juan/testrhoDarcyFoam/HenryHet2D/steadystate/0/p/boundaryField/right"
+    #line 41 "/Users/pmzmi1/OpenFOAM/SECUReFOAM-tutorials/HenryHet2D/steadystate/0/p/boundaryField/right"
 scalarField myPatch(this->patch().size());
             forAll(this->patch().Cf(),i)
             {

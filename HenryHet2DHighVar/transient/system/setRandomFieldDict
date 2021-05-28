@@ -31,20 +31,21 @@ field K;
 // correlation matern;
 
 // -- Correlation lengths
-Lcorr           (0.2 0.1 0.1);
+Lcorr           (2 10. 1);
 
 // -- Correlation tolerance (skip high frequencies)
-corrTol         1e-4;
+corrTol         1e-8;
 
 // -- Matern coefficient
 nu              1;
 
 // -- Disable dimensions
-disableY false;
+disableY true;
 disableZ false;
 
 // -- Periodic field
-periodic false;
+periodic true;
+facePeriodicity true;
 
 // -- Initialisation
 reset true; // discard current value
@@ -55,14 +56,15 @@ setFinalStats  false;
 
 // -- Mean and variance
 mu             -20.7;//1.020408e-9;
-sigma          1.4142;
+sigma          3;
 
 // -- Number of terms in the expansion
 nterms 1;
 
 // -- Number of frequencies in the expansion
 nfreq 20;
-skipfreq 2;
+// nfreqy 20;
+// nfreqz 20;
 
 // -- Maximum wave length (cannot be less than 4*Lcorr and more than domain length if periodic)
 maxLength (2 1 1);

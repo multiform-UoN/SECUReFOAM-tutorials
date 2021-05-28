@@ -5,14 +5,14 @@
     \\  /    A nd           | Version:  8
      \\/     M anipulation  |
 \*---------------------------------------------------------------------------*/
-Build  : 8-1c9b5879390b
+Build  : 8-6a90c5e21f9f
 Exec   : rhoDarcyFoam
-Date   : May 21 2021
-Time   : 16:10:47
-Host   : "ord2249"
-PID    : 184338
+Date   : May 26 2021
+Time   : 15:22:59
+Host   : "MACMINI-C07DT976Q6NW"
+PID    : 22394
 I/O    : uncollated
-Case   : /home/juan/testrhoDarcyFoam/HenryHet2D/steadystate
+Case   : /Users/pmzmi1/OpenFOAM/SECUReFOAM-tutorials/HenryHet2D/steadystate
 nProcs : 1
 sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
@@ -67,14 +67,14 @@ Standard compressibility is 1
 hydrostaticPressure is 0
 
 Reading field p
-Using dynamicCode for fixedValueFvPatchField right at line 32 in "/home/juan/testrhoDarcyFoam/HenryHet2D/steadystate/0/p/boundaryField/right"
-Creating new library in "dynamicCode/right/platforms/linux64GccDPInt32Opt/lib/libright_52e5cdee863cd79fe6db56ac6210a02c31b71429.so"
-Invoking "wmake -s libso /home/juan/testrhoDarcyFoam/HenryHet2D/steadystate/dynamicCode/right"
-wmake libso /home/juan/testrhoDarcyFoam/HenryHet2D/steadystate/dynamicCode/right
+Using dynamicCode for fixedValueFvPatchField right at line 32 in "/Users/pmzmi1/OpenFOAM/SECUReFOAM-tutorials/HenryHet2D/steadystate/0/p/boundaryField/right"
+Creating new library in "dynamicCode/right/platforms/darwin64ClangDPInt32Opt/lib/libright_52e5cdee863cd79fe6db56ac6210a02c31b71429.dylib"
+Invoking "wmake -s libso /Users/pmzmi1/OpenFOAM/SECUReFOAM-tutorials/HenryHet2D/steadystate/dynamicCode/right"
+wmake libso /Users/pmzmi1/OpenFOAM/SECUReFOAM-tutorials/HenryHet2D/steadystate/dynamicCode/right
     ln: ./lnInclude
     wmkdep: fixedValueFvPatchFieldTemplate.C
     Ctoo: fixedValueFvPatchFieldTemplate.C
-    ld: /home/juan/testrhoDarcyFoam/HenryHet2D/steadystate/dynamicCode/right/../platforms/linux64GccDPInt32Opt/lib/libright_52e5cdee863cd79fe6db56ac6210a02c31b71429.so
+    ld: /Users/pmzmi1/OpenFOAM/SECUReFOAM-tutorials/HenryHet2D/steadystate/dynamicCode/right/../platforms/darwin64ClangDPInt32Opt/lib/libright_52e5cdee863cd79fe6db56ac6210a02c31b71429.dylib
 
 Reading field p_rgh
 
@@ -89,7 +89,7 @@ Calculating face flux field phi
 Calculating field U
 
 dispersionModel is 0
-Mean dispersion tensor is (6.6e-11 0 0 6.6e-11 0 6.6e-11)
+Mean dispersion tensor is (6.6e-06 0 0 6.6e-06 0 6.6e-06)
 No finite volume options present
 Courant Number mean: 0 max: 0
 
@@ -97,27 +97,27 @@ Time = 1
 
 PIMPLE: Iteration 1
 DILUPBiCGStab:  Solving for c, Initial residual = 0, Final residual = 0, No Iterations 0
-GAMG:  Solving for p, Initial residual = 1, Final residual = 0.000846493, No Iterations 6
+GAMG:  Solving for p, Initial residual = 1, Final residual = 0.000891241, No Iterations 6
 PIMPLE: Iteration 2
 DILUPBiCGStab:  Solving for c, Initial residual = 0, Final residual = 0, No Iterations 0
-GAMG:  Solving for p, Initial residual = 0.000552754, Final residual = 3.58464e-07, No Iterations 19
+GAMG:  Solving for p, Initial residual = 0.000571989, Final residual = 5.53718e-07, No Iterations 18
 PIMPLE: Iteration 3
 DILUPBiCGStab:  Solving for c, Initial residual = 0, Final residual = 0, No Iterations 0
-GAMG:  Solving for p, Initial residual = 3.59012e-07, Final residual = 3.1099e-10, No Iterations 19
+GAMG:  Solving for p, Initial residual = 5.53024e-07, Final residual = 5.4477e-10, No Iterations 18
 PIMPLE: Iteration 4
 DILUPBiCGStab:  Solving for c, Initial residual = 0, Final residual = 0, No Iterations 0
-GAMG:  Solving for p, Initial residual = 3.1099e-10, Final residual = 9.20439e-11, No Iterations 3
+GAMG:  Solving for p, Initial residual = 5.44775e-10, Final residual = 8.9305e-11, No Iterations 5
 PIMPLE: Converged 
         Doing final iteration
 PIMPLE: Iteration 5
 DILUPBiCGStab:  Solving for c, Initial residual = 0, Final residual = 0, No Iterations 0
-GAMG:  Solving for p, Initial residual = 9.20439e-11, Final residual = 9.20439e-11, No Iterations 0
+GAMG:  Solving for p, Initial residual = 8.9305e-11, Final residual = 8.9305e-11, No Iterations 0
 PIMPLE: Converged in 5 iterations
-time step continuity errors : sum local = 4.00208e-10, global = -2.23615e-12, cumulative = -2.23615e-12
-Courant Number mean: 0.0123263 max: 0.411409
-Mean velocity  = (6.6e-05 0 3.08865e-05)
+time step continuity errors : sum local = 3.57134e-10, global = -3.19056e-11, cumulative = -3.19056e-11
+Courant Number mean: 0.0124733 max: 0.720803
+Mean velocity  = (6.6e-05 0 3.22744e-05)
 
-ExecutionTime = 0.56 s  ClockTime = 5 s
+ExecutionTime = 0.41 s  ClockTime = 6 s
 
 End
 

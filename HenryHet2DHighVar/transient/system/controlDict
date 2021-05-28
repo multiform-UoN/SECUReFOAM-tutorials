@@ -32,9 +32,9 @@ endTime         6000e0;
 
 deltaT          1.;
 
-writeControl    adjustableRunTime;
+writeControl    timeStep;//adjustableRunTime;
 
-writeInterval   100e0;
+writeInterval   1;//100e0;
 
 purgeWrite      0;
 
@@ -53,7 +53,7 @@ adjustTimeStep  yes;
 runTimeModifiable yes;
 
 maxDeltaT	100e0;
-maxCo           2.;
+maxCo           .5;
 
 
 // ************************************************************************* //

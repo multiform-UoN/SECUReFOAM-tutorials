@@ -40,24 +40,24 @@ PIMPLE
 {
     residualControl
     {
-        p 1e-8;
-        c 1e-8;
+        p 1e-6;
+        c 1e-4;
     }
-    nNonOrthogonalCorrectors 0;
-    nOuterCorrectors 500;
+    nNonOrthogonalCorrectors 2;
+    nOuterCorrectors 10;
 
     outerCorrectorResidualControl
     {
         p
         {
             tolerance 1e-8;
-            relTol 1e-4;
+            relTol 1e-3;
         }
 
         c
         {
-            tolerance 1e-8;
-            relTol 1e-4;
+            tolerance 1e-4;
+            relTol 1e-2;
         }
     }
 pRefPoint (0 0 1);

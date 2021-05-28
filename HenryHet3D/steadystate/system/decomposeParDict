@@ -10,20 +10,32 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    location    "1/uniform";
-    object      time;
+    object      decomposeParDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-value           1;
+numberOfSubdomains  8;
 
-name            "1";
+/*
+    Main methods are:
+    1) Geometric: "simple"; "hierarchical", with ordered sorting, e.g. xyz, yxz
+    2) Scotch: "scotch", when running in serial; "ptscotch", running in parallel
+*/
 
-index           1;
+method              hierarchical;
 
-deltaT          1;
+simpleCoeffs
+{
+    n               (4 2 1); // total must match numberOfSubdomains
+    delta           0.001;
+}
 
-deltaT0         1;
+hierarchicalCoeffs
+{
+    n               (2 2 2); // total must match numberOfSubdomains
+    delta           0.001;
+    order           xyz;
+}
 
 
 // ************************************************************************* //
