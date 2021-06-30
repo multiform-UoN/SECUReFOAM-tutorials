@@ -30,16 +30,8 @@ boundaryField
     }
     right
     {
-        type            fixedTransportFlux;
-        advectiveValue  uniform $c0;
-        D               uniform 6.6e-6;
-        diffusiveValue  uniform $c0;
-        diffusiveFactor uniform 1;
-        inletDiffusion  false;
-        //type          fixedValue;
-        //type          inletOutlet;
-        inletValue      uniform $c0;
-        value           uniform $c0;
+        type            fixedValue;
+        value           uniform 0.0;
     }
     top
     {

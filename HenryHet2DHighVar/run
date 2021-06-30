@@ -5,20 +5,24 @@
 
 cd steadystate
 runApplication blockMesh
+runApplication renumberMesh -overwrite
 runApplication checkMesh
 runApplication setRandomField
 runApplication rhoDarcyFoam
 
 cp system/blockMeshDict ../transient/system/
-cp 1/p ../transient/0/
-cp 1/p_rgh ../transient/0/
-cp 1/U ../transient/0/U
-cp 0/K ../transient/0/K
 
 cd ..
 
 cd transient
 runApplication blockMesh
+runApplication renumberMesh -overwrite
+
+cp ../steadystate/1/p     ../transient/0/
+cp ../steadystate/1/p_rgh ../transient/0/
+cp ../steadystate/1/U     ../transient/0/U
+cp ../steadystate/1/K     ../transient/0/K
+
 #runApplication checkMesh
 runApplication rhoDarcyFoam
 

@@ -23,9 +23,9 @@ yMax 0.1;
 zMin 0;
 zMax 1;
 
-Nx 200;
+Nx 256;
 Ny 1;
-Nz 100;
+Nz 128;
 
 vertices
 (

@@ -5,6 +5,7 @@
 
 
 runApplication blockMesh
+runApplication renumberMesh -overwrite
 runApplication checkMesh
 runApplication setRandomField
 runApplication rhoDarcyFoam

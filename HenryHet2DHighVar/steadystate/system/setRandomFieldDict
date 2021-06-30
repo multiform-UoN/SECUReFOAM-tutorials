@@ -14,8 +14,11 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// -- Random seed (to reproduce the same field)
+//seed 100;
+
 // -- Name of the field
-// -- this is read and then use as a (multiplicative) basis
+// -- this is always read and is used as a (multiplicative or additive) basis when reset=false
 field K;
 
 // -- Type of random field
@@ -27,11 +30,11 @@ field K;
 
 // -- Correlation function
 //correlation exponential;
- correlation gaussian;
+correlation gaussian;
 // correlation matern;
 
 // -- Correlation lengths
-Lcorr           (0.2 10. 0.1);
+Lcorr           (0.4 10. 0.01);
 
 // -- Correlation tolerance (skip high frequencies)
 corrTol         1e-8;
@@ -44,7 +47,9 @@ disableY true;
 disableZ false;
 
 // -- Periodic field
-periodic false;
+periodic true;
+facePeriodicity false; // face-based periodicity
+fullPeriodicity true; // force period equal to domain size
 
 // -- Initialisation
 reset true; // discard current value
@@ -57,25 +62,34 @@ setFinalStats  false;
 mu             -20.7;//1.020408e-9;
 sigma          3;
 
-// -- Number of terms in the expansion
-nterms 1;
-
 // -- Number of frequencies in the expansion
 nfreq 20;
 // nfreqy 20;
 // nfreqz 20;
+skipfreq 0;
+// skipfreqy 0;
+// skipfreqz 0;
 
-// -- Maximum wave length (cannot be less than 4*Lcorr and more than domain length if periodic)
-maxLength (2 1 1);
+// -- Maximum wave lengths (overwrites the maxLengthByL if found)
+// maxLength (10 10 10);
+
+// -- Maximum wave lengths divided per correlation length
+// maxLengthByL 4;
+
+// -- Minimum wave lengths divided  (overwrites nfreq if not enough to sample this length)
+// minLengthByL 0.25; // per correlation length
+// minLengthByCellSize 4;    // per mesh size
+// --  if both are set, the maximum between the two is choosen
 
 // -- Print basic output stats
 printStats true;
 printLogStats true;
 
-
 // -- For truncated fields
-values (1 2 3 4);
-thresholds (0);
+// values (0 1 2 3); // default are 0,1,2,...
+percentiles (0.5);
+// thresholds (0); // overwrites the percentiles
 
 // -- For bitruncated fields
-thresholds2 (0);
+percentiles2 (0.5);
+// thresholds2 (0); // overwrites the percentiles

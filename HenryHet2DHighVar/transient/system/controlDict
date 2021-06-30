@@ -32,13 +32,13 @@ endTime         6000e0;
 
 deltaT          1.;
 
-writeControl    timeStep;//adjustableRunTime;
+writeControl    adjustableRunTime;
 
-writeInterval   1;//100e0;
+writeInterval   100e0;
 
 purgeWrite      0;
 
-writeFormat     ascii;
+writeFormat     binary;
 
 writePrecision  6;
 

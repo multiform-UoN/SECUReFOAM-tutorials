@@ -49,13 +49,5 @@ runTimeModifiable yes;
 
 maxDeltaT	60.;
 
-//- for Picard time step control
-timeStepControl Picard;
-dTFactIncrease  1.0;
-dTFactDecrease  1.0;
-
-//- for h variation time step control
-//timeStepControl dthetamax;
-//dthetamax           0.01;
 
 // ************************************************************************* //
