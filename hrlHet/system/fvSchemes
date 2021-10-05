@@ -22,7 +22,7 @@ ddtSchemes
 
 gradSchemes
 {
-    default         pointCellsLeastSquares;
+    default        Gauss linear 1;
 }
 
 divSchemes
@@ -38,8 +38,6 @@ laplacianSchemes
 interpolationSchemes
 {
     default		linear;
-    K			linear;
-    rhotheta            linear;
 }
 
 snGradSchemes
@@ -52,6 +50,5 @@ fluxRequired
     default         no;
     p           ;
 }
-
 
 // ************************************************************************* //

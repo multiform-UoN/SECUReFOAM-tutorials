@@ -46,7 +46,7 @@ internalField  #codeStream
      Random randObj(time(NULL));      
 
      scalar beta = 0.2; //(1/rho)*drho/dc
-     scalar H = 50;    // height of the domain.
+     scalar H = 1;    // height of the domain.
      
      forAll(c, i)
      {

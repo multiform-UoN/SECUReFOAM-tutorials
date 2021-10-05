@@ -23,17 +23,17 @@ startTime       0.0;
 
 stopAt          endTime;
 
-endTime         5000;//3110400000;//622080000; //20 years 1 yr. = 31104000
+endTime         20;
 
-deltaT          .1;//876600; // 10.15 days
+deltaT          .1;
 
 writeControl    adjustableRunTime;
 
-writeInterval   1;//31104e3; //1 year = 31104e3;
+writeInterval   1;
 
 purgeWrite      0;
 
-writeFormat     ascii;
+writeFormat     binary;
 
 writePrecision  6;
 
@@ -43,10 +43,10 @@ timeFormat      general;
 
 timePrecision   6;
 
-adjustTimeStep  no;yes;
+adjustTimeStep  yes;
 
 runTimeModifiable yes;
 
-maxDeltaT	100;//2592e3; //1 month
+maxDeltaT	1.; //1 month
 maxCo           .5;
 // ************************************************************************* //
