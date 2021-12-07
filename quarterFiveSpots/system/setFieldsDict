@@ -1,0 +1,74 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+K0 1e-16;
+K1 1e-11;
+K2 1e-6;
+
+defaultFieldValues
+(
+    volScalarFieldValue beta 0.3
+    volScalarFieldValue beta_fr 1e-5
+    volSymmTensorFieldValue K_fr ($K0 0 0 $K0 0 $K0)
+    volSymmTensorFieldValue K ($K1 0 0 $K1 0 $K1)
+);
+
+regions
+(
+  // Setting values inside a box
+  boxToCell
+  {
+      box (.4 0 0) (.6 1 1);
+      fieldValues
+      (
+          volScalarFieldValue beta 1e-5
+          volScalarFieldValue beta_fr .99
+          volSymmTensorFieldValue K_fr ($K0 0 0 $K2 0 $K0)
+          volSymmTensorFieldValue K ($K1 0 0 $K2 0 $K1)
+      );
+  }
+
+
+  // Setting values inside a box
+  boxToCell
+  {
+      box (0 .4 0) (1 .6 1);
+      fieldValues
+      (
+          volScalarFieldValue beta 1e-5
+          volScalarFieldValue beta_fr .99
+          volSymmTensorFieldValue K_fr ($K2 0 0 $K0 0 $K0)
+          volSymmTensorFieldValue K ($K2 0 0 $K1 0 $K1)
+      );
+  }
+
+
+  // Setting values inside a box
+  boxToCell
+  {
+      box (.4 .4 0) (.6 .6 1);
+      fieldValues
+      (
+          volScalarFieldValue beta 1e-5
+          volScalarFieldValue beta_fr .99
+          volSymmTensorFieldValue K_fr ($K2 0 0 $K2 0 $K0)
+          volSymmTensorFieldValue K ($K2 0 0 $K2 0 $K1)
+      );
+  }
+
+);
+
+
+// ************************************************************************* //
