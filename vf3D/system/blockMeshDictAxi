@@ -1,0 +1,118 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5.0                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+
+xMin -0.5;
+xMax  0.5;
+yMin -0.5;;
+yMax  0.5;
+zMin  0.0;
+zMax  27.;
+
+radius 0.5;
+angle #calc "degToRad(45.)";
+rsin  #calc "$radius*sin($angle)";
+mrsin #calc "-$radius*sin($angle)";
+
+Nx 40;
+Ny 40;
+Nz 1080;
+
+vertices
+(
+    ($xMax  0.0 $zMin) //0
+    ( 0.0 $yMax $zMin) //1
+    ($xMin  0.0 $zMin) //2
+    ( 0.0 $yMin $zMin) //3
+    
+    ($xMax  0.0 $zMax) //4
+    ( 0.0 $yMax $zMax) //5
+    ($xMin  0.0 $zMax) //6
+    ( 0.0 $yMin $zMax) //7
+    
+( 0.0 0.0  $zMin) //8
+( 0.0 0.0  $zMax) //9
+
+  
+);
+
+blocks
+(
+  hex (0 1 8 8 4 5 9 9) ($Nx $Ny $Nz) simpleGrading (1 1 1)
+  hex (1 2 8 8 5 6 9 9) ($Nx $Ny $Nz) simpleGrading (1 1 1)
+  hex (2 3 8 8 6 7 9 9) ($Nx $Ny $Nz) simpleGrading (1 1 1)
+  hex (3 0 8 8 7 4 9 9) ($Nx $Ny $Nz) simpleGrading (1 1 1)
+);
+
+edges
+(
+  arc 0 1 ( $rsin  $rsin 0.0) 
+  arc 1 2 ($mrsin  $rsin 0.0)
+  arc 2 3 ($mrsin $mrsin 0.0)
+  arc 3 0 ( $rsin $mrsin 0.0)
+    
+ arc 4 5 ( $rsin  $rsin $zMax) 
+ arc 5 6 ($mrsin  $rsin $zMax)
+ arc 6 7 ($mrsin $mrsin $zMax)
+ arc 7 4 ( $rsin $mrsin $zMax)
+
+
+);
+
+boundary
+(
+    inlet
+    {
+        type   patch;
+        faces
+        (
+           (0 8 8 1)
+           (1 8 8 2)
+           (2 8 8 3)
+           (3 8 8 0)
+        );
+    }
+    outlet
+    {
+        type patch;
+        faces
+        (
+           (5 9 9 4)
+           (6 9 9 5)
+           (7 9 9 6)
+           (4 9 9 7)
+          
+        );
+    }
+    walls
+    {
+        type patch;
+        faces
+        (
+           (0 1 5 4)
+           (1 2 6 5)
+           (2 3 7 6)
+           (3 0 4 7)
+        );
+    }
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //
