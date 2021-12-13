@@ -19,7 +19,8 @@ K2 1e-6;
 
 defaultFieldValues
 (
-    volScalarFieldValue beta 0.3
+  volScalarFieldValue tau 1e-10
+  volScalarFieldValue beta 0.3
     volScalarFieldValue beta_fr 1e-5
     volSymmTensorFieldValue K_fr ($K0 0 0 $K0 0 $K0)
     volSymmTensorFieldValue K ($K1 0 0 $K1 0 $K1)
@@ -33,10 +34,11 @@ regions
       box (.4 0 0) (.6 1 1);
       fieldValues
       (
-          volScalarFieldValue beta 1e-5
+        volScalarFieldValue tau 1e-5
+        volScalarFieldValue beta 1e-5
           volScalarFieldValue beta_fr .99
           volSymmTensorFieldValue K_fr ($K0 0 0 $K2 0 $K0)
-          volSymmTensorFieldValue K ($K1 0 0 $K2 0 $K1)
+//          volSymmTensorFieldValue K ($K1 0 0 $K2 0 $K1)
       );
   }
 
@@ -47,10 +49,11 @@ regions
       box (0 .4 0) (1 .6 1);
       fieldValues
       (
+        volScalarFieldValue tau 1e-5
           volScalarFieldValue beta 1e-5
           volScalarFieldValue beta_fr .99
           volSymmTensorFieldValue K_fr ($K2 0 0 $K0 0 $K0)
-          volSymmTensorFieldValue K ($K2 0 0 $K1 0 $K1)
+//          volSymmTensorFieldValue K ($K2 0 0 $K1 0 $K1)
       );
   }
 
@@ -61,10 +64,11 @@ regions
       box (.4 .4 0) (.6 .6 1);
       fieldValues
       (
+        volScalarFieldValue tau 1e-5
           volScalarFieldValue beta 1e-5
           volScalarFieldValue beta_fr .99
           volSymmTensorFieldValue K_fr ($K2 0 0 $K2 0 $K0)
-          volSymmTensorFieldValue K ($K2 0 0 $K2 0 $K1)
+          // volSymmTensorFieldValue K ($K2 0 0 $K2 0 $K1)
       );
   }
 
