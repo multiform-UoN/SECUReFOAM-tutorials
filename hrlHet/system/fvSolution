@@ -43,7 +43,7 @@ PIMPLE
         p 1e-8;
         c 1e-8;
     }
-    nNonOrthogonalCorrectors 0;
+    nNonOrthogonalCorrectors 1;
     nOuterCorrectors 10;
 
     outerCorrectorResidualControl
@@ -51,13 +51,13 @@ PIMPLE
         p
         {
             tolerance 1e-8;
-            relTol 1e-4;
+            relTol 1e-3;
         }
 
         c
         {
             tolerance 1e-8;
-            relTol 1e-4;
+            relTol 1e-3;
         }
     }
 pRefPoint (0 0 1);
@@ -69,13 +69,13 @@ relaxationFactors
     fields
     {
         p    1;
-        c   .1;
+        c    1;
     }
 
     equations
     {
        "p.*"  1;
-       c  .99;
+       c      1;
     }
 }
 
