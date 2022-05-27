@@ -22,12 +22,12 @@ ddtSchemes
 
 gradSchemes
 {
-    default        Gauss linear 1;
+    default        Gauss linear;
 }
 
 divSchemes
 {
-    default         Gauss linearUpwind grad(c);
+    default         Gauss vanLeer01;
 }
 
 laplacianSchemes

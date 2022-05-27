@@ -34,7 +34,7 @@ correlation gaussian;
 // correlation matern;
 
 // -- Correlation lengths
-Lcorr           (0.2 10. 0.05);
+Lcorr           (0.5 10. 0.5);
 
 // -- Correlation tolerance (skip high frequencies)
 corrTol         1e-8;
@@ -60,7 +60,7 @@ setFinalStats  false;
 
 // -- Mean and variance
 mu             0;
-sigma          3;
+sigma          1;
 
 // -- Number of frequencies in the expansion
 nfreq 2;
