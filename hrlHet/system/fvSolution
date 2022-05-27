@@ -20,14 +20,14 @@ solvers
     "p.*"
     {
         solver           GAMG;
-        smoother         DIC;//GaussSeidel;
+        smoother         FDIC;//GaussSeidel;
         preconditioner   FDIC;
         tolerance        1e-10;
         relTol           1e-3;
     }
     "c.*"
     {
-        solver           PBiCGStab;
+        solver           GAMG;//PBiCGStab;
         preconditioner   DILU;
         smoother         DILU;
         tolerance        1e-10;
@@ -43,8 +43,8 @@ PIMPLE
         p 1e-8;
         c 1e-8;
     }
-    nNonOrthogonalCorrectors 1;
-    nOuterCorrectors 10;
+    nNonOrthogonalCorrectors 0;
+    nOuterCorrectors 30;
 
     outerCorrectorResidualControl
     {
