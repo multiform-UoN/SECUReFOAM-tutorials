@@ -20,14 +20,14 @@ solvers
     "p.*"
     {
         solver           GAMG;
-        smoother         GaussSeidel;
-        preconditioner   DIC;
+        smoother         FDIC;//GaussSeidel;
+        preconditioner   FDIC;
         tolerance        1e-10;
         relTol           1e-3;
     }
     "c.*"
     {
-        solver           PBiCGStab;
+        solver           GAMG;//PBiCGStab;
         preconditioner   DILU;
         smoother         DILU;
         tolerance        1e-10;
@@ -43,21 +43,21 @@ PIMPLE
         p 1e-8;
         c 1e-8;
     }
-    nNonOrthogonalCorrectors 3;
-    nOuterCorrectors 100;
+    nNonOrthogonalCorrectors 0;
+    nOuterCorrectors 30;
 
     outerCorrectorResidualControl
     {
         p
         {
-            tolerance 1e-6;
+            tolerance 1e-8;
             relTol 1e-3;
         }
 
         c
         {
-            tolerance 1e-6;
-            relTol 1e-2;
+            tolerance 1e-8;
+            relTol 1e-3;
         }
     }
 pRefPoint (0 0 1);
@@ -69,13 +69,13 @@ relaxationFactors
     fields
     {
         p    1;
-        c   .1;
+        c    1;
     }
 
     equations
     {
        "p.*"  1;
-       c  .99;
+       c      1;
     }
 }
 

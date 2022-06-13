@@ -23,7 +23,7 @@ startTime       0.0;
 
 stopAt          endTime;
 
-endTime         20;
+endTime         100;
 
 deltaT          .1;
 
@@ -43,10 +43,10 @@ timeFormat      general;
 
 timePrecision   6;
 
-adjustTimeStep  yes;
+adjustTimeStep  no;
 
 runTimeModifiable yes;
 
-maxDeltaT	1.; //1 month
-maxCo           .5;
+maxDeltaT	     1; //1 month
+maxCo           .1;
 // ************************************************************************* //
