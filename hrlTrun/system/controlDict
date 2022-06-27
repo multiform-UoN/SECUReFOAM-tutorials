@@ -47,6 +47,6 @@ adjustTimeStep  yes;
 
 runTimeModifiable yes;
 
-maxDeltaT	1.; //1 month
+maxDeltaT	1.;
 maxCo           .5;
 // ************************************************************************* //

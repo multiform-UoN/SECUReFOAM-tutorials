@@ -46,7 +46,7 @@ internalField  #codeStream
      scalar g = 1.0;
      scalar beta = 0.2; //(1/rho)*drho/dc
      scalar H = 1;    // height of the domain.
- 
+
      forAll(p, i)
      {
        const scalar z = mesh.C()[i][2];
@@ -61,25 +61,33 @@ internalField  #codeStream
 
 boundaryField
 {
-    left
-    {
-        type            zeroGradient;
-    }
-    
-    right
-    {
-        type            zeroGradient;
-    }
-    
-    bottom
-    {
-        type            zeroGradient;
-    }
-    top
-    {
-        type            zeroGradient;
+  left
+  {
+      type            darcyFixedVelocity;
+      velocity        0;
+      value           uniform 0;
+  }
 
-    }
+  right
+  {
+      type            darcyFixedVelocity;
+      velocity        0;
+      value            uniform 0;
+  }
+
+  bottom
+  {
+      type            darcyFixedVelocity;
+      velocity        0;
+      value           uniform 0;
+  }
+  top
+  {
+      type            darcyFixedVelocity;
+      velocity        0;
+      value           uniform 0;
+
+  }
     front
     {
         type            empty;
