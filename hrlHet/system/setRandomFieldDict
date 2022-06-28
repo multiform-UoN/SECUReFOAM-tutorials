@@ -15,7 +15,7 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 // -- Random seed (to reproduce the same field)
-//seed 100;
+seed 100;
 
 // -- Name of the field
 // -- this is always read and is used as a (multiplicative or additive) basis when reset=false
@@ -34,8 +34,7 @@ correlation gaussian;
 // correlation matern;
 
 // -- Correlation lengths
-Lcorr           (0.5 10. 0.5);
-
+Lcorr           (0.2 10. 0.05);
 // -- Correlation tolerance (skip high frequencies)
 corrTol         1e-8;
 
@@ -60,7 +59,7 @@ setFinalStats  false;
 
 // -- Mean and variance
 mu             0;
-sigma          1;
+sigma          1.4142;
 
 // -- Number of frequencies in the expansion
 nfreq 2;

@@ -20,14 +20,14 @@ solvers
     "p.*"
     {
         solver           GAMG;
-        smoother         FDIC;//GaussSeidel;
-        preconditioner   FDIC;
+        smoother         GaussSeidel;
+        preconditioner   DIC;
         tolerance        1e-10;
         relTol           1e-3;
     }
     "c.*"
     {
-        solver           GAMG;//PBiCGStab;
+        solver           PBiCGStab;
         preconditioner   DILU;
         smoother         DILU;
         tolerance        1e-10;
