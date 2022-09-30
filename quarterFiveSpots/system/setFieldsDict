@@ -19,7 +19,7 @@ K2 1e-6;
 
 defaultFieldValues
 (
-  volScalarFieldValue tau 1e-10
+  volScalarFieldValue tau 0 //1e-10
   volScalarFieldValue beta 0.3
     volScalarFieldValue beta_fr 1e-5
     volSymmTensorFieldValue K_fr ($K0 0 0 $K0 0 $K0)
